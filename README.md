@@ -1,7 +1,7 @@
 # Functions-and-Errors2
 The Error Handing smart contract is a Solidity contract that demonstrates error handling using "require" and "if-else" statements to handle errors gracefully and provide more informative error messages. It showcases how these statements can add conditions and effectively handle errors in a Solidity contract.
 # Purpose
-The purpose of this smart contract is to showcase different error-handling techniques to ensure safe and reliable contract execution on the Ethereum blockchain. It provides three functions that illustrate the usage of assert(), revert(), and require() statements for handling different scenarios and providing appropriate feedback.
+The purpose of this smart contract is to showcase different error-handling techniques to ensure safe and reliable contract execution on the Ethereum blockchain. It provides three functions that illustrate the usage of require() statements and if-Else statements for handling different scenarios and providing appropriate feedback.
 # Functions
 # 'merci'
 This function takes an input num of type uint and uses the require() statement to check if the num is not equal to zero. If num is zero, the function will revert the transaction with the error message: "Number should not be zero." Otherwise, the function will execute successfully without any output.
