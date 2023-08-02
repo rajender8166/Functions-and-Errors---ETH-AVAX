@@ -2,32 +2,40 @@
 pragma solidity ^0.8.0;
 
 contract ErrorHandling {
+    uint private x = 2;
 
-    uint x = 2;
+    // Error codes
+    uint constant ERR_DIVISION_BY_ZERO = 1001;
+    uint constant ERR_NUMBER_TOO_SMALL = 1002;
+    uint constant ERR_NUMBER_TOO_LARGE = 1003;
+    uint constant ERR_INPUT_NOT_POSITIVE = 1004;
 
-    function merci(uint c) public pure returns (string memory) {
-        require(c != 0, "Input must be non-zero.");
-        // Instead of using assert, we use require to check if 'c' is not zero.
-        // If it is zero, the function will revert with the specified error message.
-        // If it is not zero, the function will return a message indicating success.
-        return "Success! Input is non-zero.";
+    // Function to check if the input is not zero and return a custom error code on failure.
+    function merci(uint c) public pure returns (uint) {
+        if (c == 0) {
+            return ERR_DIVISION_BY_ZERO; // Custom error code indicating division by zero.
+        }
+        // Return a success code or value.
+        return 0;
     }
 
+    // Function to perform division and return the result or a custom error code on failure.
     function raju(uint _numerator, uint _denominator) public pure returns (uint) {
-        require(_denominator != 0, "Denominator cannot be zero.");
-        // Instead of using revert, we use require to check if the denominator is not zero.
-        // If it is zero, the function will revert with the specified error message.
-        // If the denominator is not zero, the function will proceed with the calculation.
+        if (_denominator == 0) {
+            return ERR_DIVISION_BY_ZERO; // Custom error code indicating division by zero.
+        } else if (_numerator < _denominator) {
+            return ERR_NUMBER_TOO_SMALL; // Custom error code indicating numerator is smaller than denominator.
+        }
+        // Return the division result.
         return _numerator / _denominator;
     }
-    
+
+    // Function to perform multiplication, but return a custom error code on failure instead of reverting.
     function rajender(uint y) public view returns (uint) {
-        if (y == 0) {
-            // Instead of using require, we use an if-else statement to check if 'y' is greater than zero.
-            // If 'y' is zero, the function will return an error code (e.g., 0) to indicate an error condition.
-            return 0;
+        if (y <= 0) {
+            return ERR_INPUT_NOT_POSITIVE; // Custom error code indicating the input is not positive.
         }
-        // If 'y' is not zero, the function will return the result of multiplying 'y' with the contract state variable 'x'.
+        // Return the result of multiplying 'y' with the contract state variable 'x'.
         return y * x;
     }
 }
