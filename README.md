@@ -1,5 +1,5 @@
 # Functions-and-Errors2
-The Error Handing smart contract is a Solidity contract that demonstrates error handling using require and if-else statements to handle errors gracefully and provide more informative error messages. It showcases how these statements can add conditions and effectively handle errors in a Solidity contract.
+The Error Handing smart contract is a Solidity contract that demonstrates error handling using "require" and "if-else" statements to handle errors gracefully and provide more informative error messages. It showcases how these statements can add conditions and effectively handle errors in a Solidity contract.
 # Purpose
 The purpose of this smart contract is to showcase different error-handling techniques to ensure safe and reliable contract execution on the Ethereum blockchain. It provides three functions that illustrate the usage of assert(), revert(), and require() statements for handling different scenarios and providing appropriate feedback.
 # Functions
