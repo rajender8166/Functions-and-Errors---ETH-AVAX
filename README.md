@@ -1,19 +1,46 @@
-# Functions-and-Errors2
-The Error Handing smart contract is a Solidity contract that demonstrates error handling using "require" and "if-else" statements to handle errors gracefully and provide more informative error messages. It showcases how these statements can add conditions and effectively handle errors in a Solidity contract.
-# Purpose
-The purpose of this smart contract is to showcase different error-handling techniques to ensure safe and reliable contract execution on the Ethereum blockchain. It provides three functions that illustrate the usage of require() statements and if-Else statements for handling different scenarios and providing appropriate feedback.
-# Functions
-# 'merci'
-This function takes an input num of type uint and uses the require() statement to check if the num is not equal to zero. If num is zero, the function will revert the transaction with the error message: "Number should not be zero." Otherwise, the function will execute successfully without any output.
-# 'raju'
-This function performs division with two input parameters: _numerator and _denominator, both of type uint. Before performing the division, the function uses the require() statement to check two conditions: _denominator should not be zero. If it is zero, the function will revert the transaction with the error message: "Denominator should not be zero." it should be always greater than the denominator. If this condition is not met, the function will revert with the error message: "Numerator must be greater than or equal to the denominator."
-If both conditions are satisfied, the function will return the result of the division.
-# 'rajender'
-This function takes an input a of type uint and uses the require() statement to check if a is greater than zero. If a is zero or negative, the function will revert the transaction with the error message: "Value of 'y' must be greater than zero." Otherwise, the function will return the result of multiplying a with a constant value of x.
+# Assertion Contract
 
-# Usage
-To use this smart contract, you can deploy it on an Ethereum development environment, such as Remix or Truffle. Interact with the functions using appropriate inputs to observe the different error-handling mechanisms.
+This is a Solidity smart contract that demonstrates the usage of `require()`, `assert()`, and `revert()` statements. The contract showcases how these statements can be used for input validation, invariant checks, and handling exceptional cases in a smart contract.
 
-# Authors
-Metalcraft Rajender Singh Chauhan
-Username: Merci_CU
+## Getting Started
+
+### Prerequisites
+
+To interact with the smart contract, you need the following:
+
+- An Ethereum wallet (e.g., MetaMask) to send transactions to the contract.
+- An Ethereum development environment (e.g., Remix, Truffle, or Hardhat) for deploying and testing the contract.
+
+### Deployment
+
+1. Compile the contract using a Solidity compiler with version 0.8.0 or higher.
+2. Deploy the contract to an Ethereum testnet (e.g., Ropsten, Rinkeby) or the manner using your Ethereum development environment.
+
+### Functionality
+
+The contract contains the following functions:
+
+#### `setValue(uint256 _value)`
+
+Sets the `totalValue` state variable to the given `_value`. The function checks if `_value` is greater than zero using `require()` to ensure a valid input.
+
+#### `addValue(uint256 _value)`
+
+Adds the given `_value` to the `totalValue`. The function uses `assert()` to check for potential integer overflow during the addition operation.
+
+#### `withdraw(uint256 _amount)`
+
+Allows the contract owner to withdraw a specified `_amount` from the contract. The function uses `require()` to check if the `_amount` to withdraw is not greater than the current `totalValue`. If `_amount` is more than 100, it uses `revert()` to prevent withdrawal with the custom error message "Withdrawal amount should not exceed 100."
+
+## Usage
+
+1. Deploy the contract to an Ethereum network.
+2. Interact with the contract functions using an Ethereum wallet or a development environment.
+
+## Contributing
+
+Contributions to improve the contract's functionality or fix issues are welcome. Please fork the repository and create a pull request with your changes.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
